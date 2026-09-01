@@ -4,115 +4,220 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>NostalgicHub</title>
+    <title>NostalgicHub — Memories Never Fade</title>
+
+    <meta name="description"
+          content="NostalgicHub — a digital archive for memories, music, pictures and videos.">
 
     <link rel="stylesheet" href="style.css">
+
+    <!-- Cool retro/modern fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+          rel="stylesheet">
 </head>
 
 <body>
 
-    <!-- INTRO SCREEN -->
+    <!-- INTRO -->
+
     <div id="intro">
-        <div class="intro-content">
-            <h1>Welcome to NostalgicHub</h1>
-            <p>Where memories never fade.</p>
+        <div class="intro-inner">
+
+            <div class="intro-line"></div>
+
+            <p class="intro-label">NOSTALGICHUB</p>
+
+            <h1>Welcome back.</h1>
+
+            <p class="intro-subtitle">
+                Some memories never really leave.
+            </p>
+
         </div>
     </div>
 
+
+    <!-- BACKGROUND EFFECT -->
+
+    <div class="background-noise"></div>
+
+
     <!-- NAVIGATION -->
-    <header>
-        <div class="logo">Nostalgic<span>Hub</span></div>
+
+    <header id="navbar">
+
+        <a href="#home" class="logo">
+            NOSTALGIC<span>HUB</span>
+        </a>
 
         <nav>
+
             <a href="#home">Home</a>
             <a href="#pictures">Pictures</a>
             <a href="#music">Music</a>
             <a href="#videos">Videos</a>
             <a href="#about">About</a>
+
         </nav>
+
+        <button id="music-toggle" class="music-toggle">
+            <span class="music-dot"></span>
+            <span id="music-status">Music</span>
+        </button>
+
     </header>
 
 
-    <!-- HERO -->
+    <!-- MAIN -->
+
     <main>
 
+        <!-- HERO -->
+
         <section id="home" class="hero">
+
+            <div class="hero-grid"></div>
+
             <div class="hero-content">
-                <p class="small-title">WELCOME TO</p>
 
-                <h1>NostalgicHub</h1>
+                <p class="eyebrow">A DIGITAL MEMORY ARCHIVE</p>
 
-                <p>
-                    A place for old memories, classic music,
-                    forgotten videos and everything that takes
-                    you back.
+                <h1>
+                    Remember<br>
+                    <span>everything.</span>
+                </h1>
+
+                <p class="hero-description">
+                    Pictures, sounds, videos and moments from
+                    the past — collected in one place.
                 </p>
 
-                <a href="#pictures" class="button">Explore the Hub</a>
+                <div class="hero-buttons">
+
+                    <a href="#pictures" class="primary-button">
+                        Explore
+                    </a>
+
+                    <a href="#music" class="secondary-button">
+                        Listen
+                    </a>
+
+                </div>
+
             </div>
+
+            <div class="scroll-indicator">
+                <span></span>
+                Scroll to explore
+            </div>
+
         </section>
 
 
         <!-- PICTURES -->
+
         <section id="pictures" class="section">
-            <div class="section-title">
-                <p>MEMORIES</p>
-                <h2>Pictures</h2>
+
+            <div class="section-heading">
+
+                <div>
+                    <p class="eyebrow">01 / MEMORIES</p>
+                    <h2>Pictures</h2>
+                </div>
+
+                <p class="section-description">
+                    Moments frozen in time.
+                </p>
+
             </div>
 
             <div id="image-gallery" class="image-gallery">
 
-                <div class="empty-message">
-                    <h3>📷 Your memories go here</h3>
-                    <p>
-                        Upload pictures to the
-                        <strong>images</strong> folder in GitHub.
-                    </p>
+                <div class="loading-card">
+                    Loading memories...
                 </div>
 
             </div>
+
         </section>
 
 
         <!-- MUSIC -->
-        <section id="music" class="section dark-section">
 
-            <div class="section-title">
-                <p>SOUNDS OF THE PAST</p>
-                <h2>Music</h2>
-            </div>
+        <section id="music" class="section music-section">
 
-            <div id="music-list" class="music-list">
+            <div class="section-heading">
 
-                <div class="empty-message">
-                    <h3>🎵 Your music goes here</h3>
-                    <p>
-                        Upload MP3 files to the
-                        <strong>music</strong> folder in GitHub.
-                    </p>
+                <div>
+                    <p class="eyebrow">02 / SOUNDTRACK</p>
+                    <h2>Music</h2>
                 </div>
 
+                <p class="section-description">
+                    The sounds that bring it all back.
+                </p>
+
             </div>
+
+            <div class="music-player">
+
+                <div class="player-info">
+
+                    <div class="vinyl">
+                        <div class="vinyl-center"></div>
+                    </div>
+
+                    <div>
+
+                        <p class="now-playing-label">
+                            NOW PLAYING
+                        </p>
+
+                        <h3 id="current-song">
+                            NostalgicHub
+                        </h3>
+
+                        <p id="song-number">
+                            Waiting for music...
+                        </p>
+
+                    </div>
+
+                </div>
+
+                <audio id="audio-player" controls></audio>
+
+            </div>
+
+            <div id="music-list" class="music-list"></div>
 
         </section>
 
 
         <!-- VIDEOS -->
+
         <section id="videos" class="section">
 
-            <div class="section-title">
-                <p>WATCH & REMEMBER</p>
-                <h2>Videos</h2>
+            <div class="section-heading">
+
+                <div>
+                    <p class="eyebrow">03 / ARCHIVE</p>
+                    <h2>Videos</h2>
+                </div>
+
+                <p class="section-description">
+                    Watch the past come alive.
+                </p>
+
             </div>
 
             <div id="video-gallery" class="video-gallery">
 
-                <div class="empty-message">
-                    <h3>🎬 Your videos go here</h3>
-                    <p>
-                        Upload videos to the
-                        <strong>videos</strong> folder in GitHub.
-                    </p>
+                <div class="loading-card">
+                    Loading videos...
                 </div>
 
             </div>
@@ -121,28 +226,27 @@
 
 
         <!-- ABOUT -->
-        <section id="about" class="section about">
 
-            <div class="section-title">
-                <p>ABOUT THE PROJECT</p>
-                <h2>NostalgicHub</h2>
-            </div>
+        <section id="about" class="section about-section">
 
-            <div class="about-box">
+            <div class="about-content">
+
+                <p class="eyebrow">04 / NOSTALGICHUB</p>
+
+                <h2>
+                    For the things<br>
+                    <span>worth remembering.</span>
+                </h2>
 
                 <p>
-                    NostalgicHub is a place dedicated to nostalgia.
-                    A digital archive for the things that made
-                    different eras special.
+                    NostalgicHub is a personal digital archive
+                    built around one simple idea: memories should
+                    have somewhere to live.
                 </p>
 
                 <p>
-                    Pictures. Music. Videos. Memories.
-                    Everything belongs here.
-                </p>
-
-                <p class="quote">
-                    "Some memories deserve to live forever."
+                    Add your own pictures, music and videos to
+                    the archive and watch the collection grow.
                 </p>
 
             </div>
@@ -153,13 +257,18 @@
 
 
     <!-- FOOTER -->
+
     <footer>
 
-        <div class="logo">Nostalgic<span>Hub</span></div>
+        <div class="footer-logo">
+            NOSTALGIC<span>HUB</span>
+        </div>
 
         <p>
-            Made for memories that never disappear.
+            Memories never fade.
         </p>
+
+        <div class="footer-line"></div>
 
         <p class="copyright">
             © 2026 NostalgicHub
