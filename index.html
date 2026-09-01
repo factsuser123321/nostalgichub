@@ -1,527 +1,174 @@
-```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>NostalgicHub</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<style>
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+    <title>NostalgicHub</title>
 
-html {
-    scroll-behavior: smooth;
-}
-
-body {
-    background: #08080b;
-    color: white;
-    font-family: Arial, sans-serif;
-    overflow-x: hidden;
-}
-
-/* INTRO */
-#intro {
-    position: fixed;
-    inset: 0;
-    background: #050507;
-    z-index: 9999;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    animation: fadeOut 1.2s ease forwards;
-    animation-delay: 3.5s;
-}
-
-.intro-text {
-    text-align: center;
-    animation: fadeIn 2s ease;
-}
-
-.intro-text small {
-    color: #666;
-    letter-spacing: 5px;
-    font-size: 10px;
-}
-
-.intro-text h1 {
-    margin-top: 20px;
-    font-size: clamp(40px, 8vw, 90px);
-    letter-spacing: -4px;
-}
-
-.intro-text h1 span {
-    display: block;
-    color: #888;
-}
-
-.intro-text p {
-    color: #555;
-    margin-top: 20px;
-    font-size: 13px;
-}
-
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-        filter: blur(10px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateY(0);
-        filter: blur(0);
-    }
-}
-
-@keyframes fadeOut {
-    to {
-        opacity: 0;
-        visibility: hidden;
-    }
-}
-
-/* NAVBAR */
-nav {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 70px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0 8%;
-    background: rgba(8,8,11,.8);
-    backdrop-filter: blur(15px);
-    border-bottom: 1px solid #202027;
-    z-index: 1000;
-}
-
-.logo {
-    font-size: 18px;
-    font-weight: bold;
-}
-
-.logo span {
-    color: #777;
-}
-
-.nav-links {
-    display: flex;
-    gap: 30px;
-}
-
-.nav-links a {
-    color: #777;
-    text-decoration: none;
-    font-size: 13px;
-    transition: .3s;
-}
-
-.nav-links a:hover {
-    color: white;
-}
-
-/* HERO */
-.hero {
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    padding: 120px 10%;
-    position: relative;
-}
-
-.hero-content {
-    max-width: 750px;
-}
-
-.badge {
-    display: inline-block;
-    border: 1px solid #292930;
-    border-radius: 50px;
-    padding: 8px 14px;
-    color: #777;
-    font-size: 10px;
-    letter-spacing: 2px;
-    margin-bottom: 25px;
-}
-
-.hero h2 {
-    font-size: clamp(45px, 7vw, 90px);
-    line-height: .95;
-    letter-spacing: -5px;
-}
-
-.hero h2 span {
-    color: #666;
-}
-
-.hero p {
-    max-width: 600px;
-    color: #777;
-    line-height: 1.8;
-    margin-top: 30px;
-}
-
-.button {
-    display: inline-block;
-    margin-top: 30px;
-    padding: 14px 22px;
-    border-radius: 8px;
-    background: white;
-    color: black;
-    text-decoration: none;
-    font-size: 13px;
-    transition: .3s;
-}
-
-.button:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 10px 40px rgba(255,255,255,.15);
-}
-
-/* SECTIONS */
-section {
-    padding: 110px 10%;
-    border-top: 1px solid #17171d;
-}
-
-.section-title {
-    margin-bottom: 45px;
-}
-
-.section-title small {
-    color: #555;
-    letter-spacing: 3px;
-    font-size: 10px;
-}
-
-.section-title h2 {
-    font-size: 50px;
-    margin-top: 10px;
-    letter-spacing: -3px;
-}
-
-/* CARDS */
-.cards {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 15px;
-}
-
-.card {
-    background: #0e0e13;
-    border: 1px solid #202027;
-    border-radius: 15px;
-    padding: 30px;
-    min-height: 250px;
-    transition: .4s;
-}
-
-.card:hover {
-    transform: translateY(-7px);
-    border-color: #44444c;
-}
-
-.card .icon {
-    font-size: 35px;
-    margin-bottom: 35px;
-}
-
-.card small {
-    color: #555;
-    letter-spacing: 2px;
-}
-
-.card h3 {
-    margin-top: 10px;
-    font-size: 22px;
-}
-
-.card p {
-    color: #666;
-    line-height: 1.7;
-    margin-top: 10px;
-    font-size: 13px;
-}
-
-/* ABOUT */
-.about {
-    text-align: center;
-}
-
-.about p {
-    max-width: 650px;
-    margin: 25px auto;
-    color: #666;
-    line-height: 1.9;
-}
-
-/* FOOTER */
-footer {
-    padding: 60px 10%;
-    border-top: 1px solid #17171d;
-    color: #555;
-    font-size: 12px;
-}
-
-footer strong {
-    color: white;
-}
-
-/* MOBILE */
-@media (max-width: 750px) {
-
-    .nav-links {
-        display: none;
-    }
-
-    .hero {
-        padding: 120px 7%;
-    }
-
-    section {
-        padding: 80px 7%;
-    }
-
-    .cards {
-        grid-template-columns: 1fr;
-    }
-
-    .section-title h2 {
-        font-size: 40px;
-    }
-}
-</style>
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-<!-- INTRO -->
-<div id="intro">
-    <div class="intro-text">
-        <small>WELCOME TO</small>
-
-        <h1>
-            Nostalgic<span>Hub</span>
-        </h1>
-
-        <p>Loading memories...</p>
-    </div>
-</div>
-
-
-<!-- NAVIGATION -->
-<nav>
-
-    <div class="logo">
-        Nostalgic<span>Hub</span>
-    </div>
-
-    <div class="nav-links">
-        <a href="#home">Home</a>
-        <a href="#games">Games</a>
-        <a href="#media">Media</a>
-        <a href="#archive">Archive</a>
-        <a href="#about">About</a>
-    </div>
-
-</nav>
-
-
-<!-- HOME -->
-<div class="hero" id="home">
-
-    <div class="hero-content">
-
-        <div class="badge">
-            ✦ WELCOME BACK, INTERNET
+    <!-- INTRO SCREEN -->
+    <div id="intro">
+        <div class="intro-content">
+            <h1>Welcome to NostalgicHub</h1>
+            <p>Where memories never fade.</p>
         </div>
+    </div>
 
-        <h2>
-            Remember when
-            <span>the internet</span>
-            felt different?
-        </h2>
+    <!-- NAVIGATION -->
+    <header>
+        <div class="logo">Nostalgic<span>Hub</span></div>
+
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#pictures">Pictures</a>
+            <a href="#music">Music</a>
+            <a href="#videos">Videos</a>
+            <a href="#about">About</a>
+        </nav>
+    </header>
+
+
+    <!-- HERO -->
+    <main>
+
+        <section id="home" class="hero">
+            <div class="hero-content">
+                <p class="small-title">WELCOME TO</p>
+
+                <h1>NostalgicHub</h1>
+
+                <p>
+                    A place for old memories, classic music,
+                    forgotten videos and everything that takes
+                    you back.
+                </p>
+
+                <a href="#pictures" class="button">Explore the Hub</a>
+            </div>
+        </section>
+
+
+        <!-- PICTURES -->
+        <section id="pictures" class="section">
+            <div class="section-title">
+                <p>MEMORIES</p>
+                <h2>Pictures</h2>
+            </div>
+
+            <div id="image-gallery" class="image-gallery">
+
+                <div class="empty-message">
+                    <h3>📷 Your memories go here</h3>
+                    <p>
+                        Upload pictures to the
+                        <strong>images</strong> folder in GitHub.
+                    </p>
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- MUSIC -->
+        <section id="music" class="section dark-section">
+
+            <div class="section-title">
+                <p>SOUNDS OF THE PAST</p>
+                <h2>Music</h2>
+            </div>
+
+            <div id="music-list" class="music-list">
+
+                <div class="empty-message">
+                    <h3>🎵 Your music goes here</h3>
+                    <p>
+                        Upload MP3 files to the
+                        <strong>music</strong> folder in GitHub.
+                    </p>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- VIDEOS -->
+        <section id="videos" class="section">
+
+            <div class="section-title">
+                <p>WATCH & REMEMBER</p>
+                <h2>Videos</h2>
+            </div>
+
+            <div id="video-gallery" class="video-gallery">
+
+                <div class="empty-message">
+                    <h3>🎬 Your videos go here</h3>
+                    <p>
+                        Upload videos to the
+                        <strong>videos</strong> folder in GitHub.
+                    </p>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ABOUT -->
+        <section id="about" class="section about">
+
+            <div class="section-title">
+                <p>ABOUT THE PROJECT</p>
+                <h2>NostalgicHub</h2>
+            </div>
+
+            <div class="about-box">
+
+                <p>
+                    NostalgicHub is a place dedicated to nostalgia.
+                    A digital archive for the things that made
+                    different eras special.
+                </p>
+
+                <p>
+                    Pictures. Music. Videos. Memories.
+                    Everything belongs here.
+                </p>
+
+                <p class="quote">
+                    "Some memories deserve to live forever."
+                </p>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- FOOTER -->
+    <footer>
+
+        <div class="logo">Nostalgic<span>Hub</span></div>
 
         <p>
-            Welcome to NostalgicHub — a place dedicated to
-            old games, forgotten websites, classic media,
-            internet culture and the memories we never want
-            to forget.
+            Made for memories that never disappear.
         </p>
 
-        <a href="#games" class="button">
-            Explore NostalgicHub →
-        </a>
-
-    </div>
-
-</div>
-
-
-<!-- GAMES -->
-<section id="games">
-
-    <div class="section-title">
-        <small>01 / PLAY</small>
-        <h2>Retro Games</h2>
-    </div>
-
-    <div class="cards">
-
-        <div class="card">
-            <div class="icon">🕹️</div>
-            <small>CLASSIC</small>
-            <h3>Flash Games</h3>
-            <p>
-                Remember those random Flash games
-                you could spend hours playing?
-            </p>
-        </div>
-
-        <div class="card">
-            <div class="icon">💻</div>
-            <small>2000s</small>
-            <h3>Browser Games</h3>
-            <p>
-                Games that made the old internet
-                feel like a completely different place.
-            </p>
-        </div>
-
-        <div class="card">
-            <div class="icon">💾</div>
-            <small>ARCHIVE</small>
-            <h3>Old PC Games</h3>
-            <p>
-                A collection of memories from
-                classic PC gaming.
-            </p>
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- MEDIA -->
-<section id="media">
-
-    <div class="section-title">
-        <small>02 / WATCH</small>
-        <h2>Media</h2>
-    </div>
-
-    <div class="cards">
-
-        <div class="card">
-            <div class="icon">📼</div>
-            <small>VIDEOS</small>
-            <h3>Internet Classics</h3>
-            <p>
-                Videos and moments that became
-                part of internet history.
-            </p>
-        </div>
-
-        <div class="card">
-            <div class="icon">🎵</div>
-            <small>MUSIC</small>
-            <h3>Old School Sounds</h3>
-            <p>
-                Music that instantly brings back
-                memories from another era.
-            </p>
-        </div>
-
-        <div class="card">
-            <div class="icon">📷</div>
-            <small>IMAGES</small>
-            <h3>Internet Memories</h3>
-            <p>
-                Screenshots, pictures and moments
-                from the old web.
-            </p>
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- ARCHIVE -->
-<section id="archive">
-
-    <div class="section-title">
-        <small>03 / ARCHIVE</small>
-        <h2>The Archive</h2>
-    </div>
-
-    <div class="card">
-
-        <div class="icon">🗃️</div>
-
-        <small>COMING SOON</small>
-
-        <h3>
-            Things we refuse to forget.
-        </h3>
-
-        <p>
-            NostalgicHub's archive will eventually
-            contain old websites, games, videos,
-            images and other pieces of internet history.
+        <p class="copyright">
+            © 2026 NostalgicHub
         </p>
 
-    </div>
-
-</section>
+    </footer>
 
 
-<!-- ABOUT -->
-<section id="about" class="about">
-
-    <div class="section-title">
-        <small>04 / ABOUT</small>
-        <h2>Why NostalgicHub?</h2>
-    </div>
-
-    <p>
-        The internet used to feel smaller.
-        Websites were weird. Games were simple.
-        Forums were alive.
-    </p>
-
-    <p>
-        NostalgicHub is a little corner of the internet
-        dedicated to remembering those days.
-    </p>
-
-</section>
-
-
-<!-- FOOTER -->
-<footer>
-
-    <strong>NostalgicHub</strong>
-
-    <br><br>
-
-    Made for the memories.
-
-    <br><br>
-
-    © 2026 NostalgicHub
-
-</footer>
+    <script src="script.js"></script>
 
 </body>
 </html>
-```
